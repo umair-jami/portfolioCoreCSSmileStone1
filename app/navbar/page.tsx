@@ -3,9 +3,9 @@ import Image from "next/image";
 import logo from "../assets/logo.png";
 import contactImg from "../assets/contact.png";
 import menu from "../assets/menu.png";
-import { Link as ScrollLink } from "react-scroll";
 import React, { useState } from "react";
 import "./nav.css";
+import Link from "next/link";
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -14,46 +14,35 @@ export default function Navbar() {
     <nav className="navbar">
       <Image src={logo} alt="logo" className="logo " />
       <div className="desktopMenu">
-        <ScrollLink
-          to="intro"
-          smooth={true}
-          duration={500}
+        <Link
+          href='#intro'
           className="desktopMenuListItem"
         >
           Home
-        </ScrollLink>
-        <ScrollLink
-          to="skills"
-          smooth={true}
-          duration={500}
-          offset={-70}
+        </Link>
+        <Link
+          href='#skills'
           className="desktopMenuListItem"
         >
           About
-        </ScrollLink>
-        <ScrollLink
-          to="works"
-          smooth={true}
-          duration={500}
-          offset={-100}
+        </Link>
+        <Link
+          href='#works'
           className="desktopMenuListItem"
         >
           Portfolio
-        </ScrollLink>
-        <ScrollLink
-          to="contact"
-          smooth={true}
-          duration={500}
+        </Link>
+        <Link
+          href='#contact'
           className="desktopMenuListItem"
-          offset={-450}
         >
           Clients
-        </ScrollLink>
+        </Link>
       </div>
-      <ScrollLink to="contact" smooth={true} duration={500} className="desktopMenuBtn">
+      <Link href='#contact' className="desktopMenuBtn">
         <Image src={contactImg} alt="" className="desktopMenuImg" />
         Contact Me
-      </ScrollLink>
+      </Link>
 
       <Image
         src={menu}
@@ -65,42 +54,34 @@ export default function Navbar() {
         className="navMenu"
         style={{ display: showMenu ? "flex" : "none" }}
       >
-        <ScrollLink
-          to="intro"
-          smooth={true}
-          duration={500}
+        <Link
+          href='#intro'
           className="desktopMenuListItem"
           onClick={() => setShowMenu(false)}
         >
           Home
-        </ScrollLink>
-        <ScrollLink
-          to="skills"
-          smooth={true}
-          duration={500}
+        </Link>
+        <Link
+          href='#skill'
           className="desktopMenuListItem"
           onClick={() => setShowMenu(false)}
         >
           About
-        </ScrollLink>
-        <ScrollLink
-          to="works"
-          smooth={true}
-          duration={500}
+        </Link>
+        <Link
+          href='#works'
           className="desktopMenuListItem"
           onClick={() => setShowMenu(false)}
         >
           Portfolio
-        </ScrollLink>
-        <ScrollLink
-          to="contact"
-          smooth={true}
-          duration={500}
+        </Link>
+        <Link
+          href='#contact'
           className="desktopMenuListItem"
           onClick={() => setShowMenu(false)}
         >
           Clients
-        </ScrollLink>
+        </Link>
       </div>
     </nav>
   );
